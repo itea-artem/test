@@ -7,11 +7,11 @@ class Person:
     def name(self):
         return self.__name
  
-    @property
+    @property  # print(person.age)
     def age(self):
         return self.__age
  
-    @age.setter
+    @age.setter  # person_john.age = 5
     def age(self, age):
         if age in range(1, 100):
             self.__age = age
@@ -42,11 +42,12 @@ class Student(Person):
  
     # переопределение метода display_info
     def display_info(self):
+        Person.display_info(self)
         print("Студент", self.name, "учится в университете", self.university)
 
 
-people = [Person("Tom", 23), Student("Bob", 19, "Harvard"), Employee("Sam", 35, "Google")]
- 
-for person in people:
-    person.display_info()
-    print()
+# people = [Person("Tom", 23), Student("Bob", 19, "Harvard"), Employee("Sam", 35, "Google")]
+#
+# for person in people:
+#     person.display_info()
+#     print()
