@@ -10,7 +10,7 @@ class MatrixError(Exception):
     pass
 
 
-class Matrix(object):
+class Matrix:
     """ A simple Python matrix class with
     basic operations and operator overloading """
 
@@ -26,6 +26,8 @@ class Matrix(object):
         return self.rows[idx]
 
     def __setitem__(self, idx, item):
+        if type(item) != list:
+            raise MatrixError('Invalid type')
         self.rows[idx] = item
 
     def __str__(self):
@@ -150,7 +152,7 @@ class Matrix(object):
         return self
 
     def save(self, filename):
-        open(filename, 'w').write(str(self))
+        open(filename, 'w').write(self.__str__())
 
     @classmethod
     def _make_matrix(cls, rows):

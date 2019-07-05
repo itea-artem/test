@@ -8,9 +8,20 @@ class Point:
         self.x = x
         self.y = y
 
+    def __repr__(self):
+        return f'Point({self.x},{self.y})'
+
+    def __str__(self):
+        return 'string repr: ' + self.__repr__()
+
+
+class Test:
+    x = 2
+    y = 4
+
 
 class Line:
-    def __init__(self, a, b):
+    def __init__(self, a: Point, b: Point):
         self.a = a
         self.b = b
 
@@ -24,4 +35,8 @@ l = Line(p1, p2)
 
 print(l.a)
 print(l.b)
+
+print(str(l.a))
+print(str(l.b))
+
 print(l.length())   # 5.0
