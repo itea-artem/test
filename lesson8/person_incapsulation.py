@@ -32,6 +32,14 @@ class Person:
     def display_info(self):
         print("Имя:", self.__name, "\tВозраст:", self.__age)
 
+persons = []
+for i in range(2):
+    name = input()
+    pers = Person(name, [1])
+    persons.append(pers)
+    del pers
+for p in persons:
+    p.display_info()
 
 numbers = [1]
 tom = Person("Tom", numbers)
